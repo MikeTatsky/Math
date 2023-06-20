@@ -68,6 +68,13 @@
 <script>
   const setNumbers = new Set();
   let deep = 0;
+  let pickedLang;
+	
+voices.forEach((voice)=>{
+  if(voice.lang === 'ru-Ru'){
+    pickedLang = voice;
+  }
+});
 
 document.getElementById('result').addEventListener('input', onChange);
 
@@ -99,13 +106,14 @@ function getNextNumbers(){
 
 function run(){
   deep = 0;
-	const { a, b, stop } = getNextNumbers();
+  const { a, b, stop } = getNextNumbers();
 
   if(stop){
     const text = `Похоже ты все решил. Молодец!`;
 
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.voice = speechSynthesis.getVoices()[20];
+    //utterance.voice = speechSynthesis.getVoices()[20];
+    utterance.voice = pickedLang;
     window.speechSynthesis.speak(utterance);
     return;
   }
@@ -121,7 +129,8 @@ function run(){
 	const text = `Ваня, сколько будет ${a} умножить на ${b}?`;
 
 	const utterance = new SpeechSynthesisUtterance(text);
-	utterance.voice = speechSynthesis.getVoices()[20];
+	//utterance.voice = speechSynthesis.getVoices()[20];
+	utterance.voice = pickedLang;
 	window.speechSynthesis.speak(utterance);
 }
 
@@ -142,7 +151,8 @@ function onChange() {
 	if(a * b === result){
  		const text = `Правильно`;
 		const utterance = new SpeechSynthesisUtterance(text);
-		utterance.voice = speechSynthesis.getVoices()[20];
+		//utterance.voice = speechSynthesis.getVoices()[20];
+		utterance.voice = pickedLang;
 		window.speechSynthesis.speak(utterance);
 
     const buttonRun = document.getElementById('buttonRun');
@@ -153,7 +163,8 @@ function onChange() {
   if(String(result).length === 2 && a * b !== result){
     const text = `Неправильно, попробуй еще раз`;
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.voice = speechSynthesis.getVoices()[20];
+    //utterance.voice = speechSynthesis.getVoices()[20];
+    utterance.voice = pickedLang;
     window.speechSynthesis.speak(utterance);
 
     //document.getElementById('result').value = '';
