@@ -69,6 +69,7 @@
   const setNumbers = new Set();
   let deep = 0;
   let pickedLang;
+  const voices = speechSynthesis.getVoices();
 	
 voices.forEach((voice)=>{
   if(voice.lang === 'ru-Ru'){
