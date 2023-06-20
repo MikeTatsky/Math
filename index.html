@@ -90,12 +90,16 @@
       <label>Голос</label>
       <select id="voices" onchange="onChangeVoice()"></select>
     </div>
+    <div>
+      <label>Знак</label>
+      <select id="sign-select" onchange="onChangeSign()"></select>
+    </div>
   </div>
 
   <div class="main-2">
     <div class="container">
       <div id="firstNumber" class="number"></div>
-      <div id="sign" class="sign">X</div>
+      <div id="sign" class="sign"></div>
       <div id="secondNumber" class="number"></div>
       <input id="result" />
     </div>
@@ -114,6 +118,13 @@
 
 <script>
   let voiceIndex = Number(localStorage.getItem('voice-index')) || 0;
+  let sign = localStorage.getItem('sign') || 'X';
+
+  function onChangeSign(){
+
+  }
+
+  document.getElementById('sign').innerHTML = sign;
 
   function onChangeVoice(){
     const el = document.getElementById('voices');
@@ -264,12 +275,10 @@ function onChange() {
 	const b = parseInt(secondNumber.innerHTML);
 	const result = parseInt(document.getElementById('result').value);
 
-  console.log(a, b, result);
-
 	if(a * b === result){
  		const text = `Правильно`;
 		const utterance = new SpeechSynthesisUtterance(text);
-		utterance.voice = speechSynthesis.getVoices()[20];
+		utterance.voice = ruVoices[voiceIndex];
 		window.speechSynthesis.speak(utterance);
 
     const buttonRun = document.getElementById('buttonRun');
