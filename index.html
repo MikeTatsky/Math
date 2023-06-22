@@ -76,6 +76,8 @@
   function onChangeSign(){
     const newSign = document.getElementById('sign-select').value;
 
+	sign = newSign;  
+	  
     localStorage.setItem('sign', newSign);
     document.getElementById('sign').innerHTML = SIGNS[newSign];
   }
