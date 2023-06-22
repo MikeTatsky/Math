@@ -2,6 +2,27 @@ html {
   font-family: -apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol',sans-serif;
 }
 
+.field {
+  margin: 5px 0;
+}
+
+.field select {
+  height: 30px;
+}
+
+.field option {
+  height: 30px;
+}
+
+label {
+  display: inline-block;
+  font-size: 13px;
+  color: #2e2f32;
+  font-weight: bolder;
+  width: 100px;
+  min-width: 100px;
+}
+
 .container {
   display: flex;
   align-items: center;
@@ -9,11 +30,20 @@ html {
   flex: 1;
 }
 
-.gear {}
+.gear {
+  background-color: rgb(246, 248, 250);
+  border: 1px solid rgb(208, 215, 222);
+  display: flex;
+  width: 32px;
+  height: 32px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  cursor: pointer;
+}
 
 .gear svg {
-  cursor: pointer;
-  color: hsl(0,0%,30%);
+  color: #656d76;
 }
 
 .number {
@@ -32,7 +62,8 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: bolder;
   width: 25px;
   height: 25px;
   box-shadow: 0 0 1px rgba(0,0,0,0.32), 0 0 2px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.08);
